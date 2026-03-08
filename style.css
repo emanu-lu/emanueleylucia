@@ -14,8 +14,10 @@
     padding: 0;
 }
 
+/* =========================
+   LIMPIEZA DE FUENTES Y BODY
+========================= */
 body {
-    /* Fondo inicial */
     background-color: #FFFFFF;
     font-family: 'Sen', sans-serif;
     color: var(--texto);
@@ -24,12 +26,20 @@ body {
     -webkit-font-smoothing: antialiased;
 }
 
-/* Títulos con tipografía elegante Prata */
-h1, .date {
+input, textarea, select, button, p, .timeline__desc, .card__text, .iban-box {
+    font-family: 'Sen', sans-serif;
+}
+
+h1, h2, .date, .titulos-card, #location-title, #travel-title, #gift-title, .card__title, .timeline__title {
     font-family: "Reenie Beanie", cursive;
     font-weight: 400;
     letter-spacing: 1px;
+}
+
+h2, .titulos-card {
+    font-size: 2.5rem;
     margin-bottom: 20px;
+    color: var(--texto);
 }
 
 .bienvenida{
@@ -40,15 +50,12 @@ h1, .date {
 
 /* SECCIONES CONTENEDORAS */
 .section-container {
-    padding: 30px 35px; /* Margen interno amplio para móvil */
+    padding: 30px 35px;
     max-width: 500px;
     margin: auto;
     margin-bottom: 20px;
-    width: 100%; /* Asegura margen lateral en pantallas pequeñas */
-    
-    /* Fondo semi-transparente para leer bien sobre la textura */
+    width: 100%; 
     background-color: rgba(255, 251, 245, 0.5);
-
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
 }
 
@@ -59,11 +66,10 @@ h1, .date {
 .hero-content{
     padding: 30px;
     margin-bottom: 10px;
-    max-width: 300px;
+    max-width: 250px;
     margin: auto;
-    margin-bottom: 20px;
     width: 100%; 
-    
+    margin-top: 40px;
 }
 
 .fotomaton {
@@ -73,14 +79,14 @@ h1, .date {
 }
 
 h1 {
-    font-size: 2rem;
+    font-size: 3.4rem;
     color: var(--naranja);
     margin-bottom: 0px;
-    font-family: "Sen",sans-serif;
-    line-height: 50px;
+    line-height: 40px;
     text-transform: uppercase;
+    width: 100%;
     text-align: justify;
-
+    text-align-last: justify;
 }
 
 .date {
@@ -96,7 +102,9 @@ h1 {
     letter-spacing: 1.5px;
 }
 
-/* NAVEGACIÓN Y BOTONES */
+/* =========================
+   SELECTOR DE IDIOMA Y BOTONES
+========================= */
 .language-picker {
     position: absolute;
     top: 25px;
@@ -107,20 +115,28 @@ h1 {
 .language-picker button {
     background: none;
     border: none;
-    font-family: 'Manrope', sans-serif;
+    font-family: 'Sen', sans-serif;
     font-weight: 700;
-    font-size: 0.9rem;
-    color: var(--blanco);
-    opacity: 0.8;
+    font-size: 1rem;
+    color: var(--naranja);
+    opacity: 0.4;
     cursor: pointer;
-    padding: 5px;
+    padding: 5px 10px;
+    transition: all 0.3s ease;
+}
+
+/* Estilo cuando el idioma está seleccionado */
+.language-picker button.active {
+    opacity: 1;
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    transform: scale(1.1);
 }
 
 .text-justified{
     font-size: 1.2rem;
     text-align: center;
     line-height: 1.8;
-
 }
 
 .search-box{
@@ -134,7 +150,6 @@ input[type="text"], textarea, select {
     border: 1.5px solid var(--borde);
     border-radius: 10px;
     margin-bottom: 15px;
-    font-family: 'Manrope', sans-serif;
 }
 
 button#btn-search, button#btn-submit {
@@ -149,7 +164,6 @@ button#btn-search, button#btn-submit {
     cursor: pointer;
     text-transform: uppercase;
     letter-spacing: 1px;
-    font-family: 'Manrope', sans-serif;
 }
 
 .btn-secundario {
@@ -162,7 +176,6 @@ button#btn-search, button#btn-submit {
     border-radius: 30px;
     font-weight: 600;
     font-size: 0.9rem;
-    font-family: 'Manrope', sans-serif;
 }
 
 .iban-box {
@@ -171,7 +184,6 @@ button#btn-search, button#btn-submit {
     border-radius: 15px;
     border: 1px dashed var(--naranja);
     margin: 20px 0;
-    font-family: 'Manrope', sans-serif;
 }
 
 .form-group{
@@ -181,6 +193,7 @@ button#btn-search, button#btn-submit {
 .checkbox-wrapper{
     margin-bottom: 10px;
 }
+
 /* CARRUSEL POLAROID */
 .polaroid-carousel {
     display: flex;
@@ -196,12 +209,11 @@ button#btn-search, button#btn-submit {
 .polaroid-item {
     flex: 0 0 100%;
     scroll-snap-align: center;
-
 }
 
 .polaroid-item img {
     width: 100%;
-    aspect-ratio: 4 / 3; /* Formato horizontal */
+    aspect-ratio: 4 / 3;
     object-fit: cover;
 }
 
@@ -210,19 +222,19 @@ footer {
     font-size: 0.8rem;
     opacity: 0.7;
     text-transform: uppercase;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Sen', sans-serif;
 }
 
 /* Estilos para el Modal */
 .modal {
-    display: none; /* Oculto por defecto */
+    display: none;
     position: fixed;
     z-index: 2000;
     left: 0;
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0,0,0,0.6); /* Fondo oscurecido */
+    background-color: rgba(0,0,0,0.6);
     backdrop-filter: blur(5px);
 }
 
@@ -235,7 +247,7 @@ footer {
     max-width: 500px;
     position: relative;
     max-height: 85vh;
-    overflow-y: auto; /* Permite scroll si el formulario es largo */
+    overflow-y: auto;
 }
 
 .close-modal {
@@ -248,7 +260,6 @@ footer {
     color: var(--naranja);
 }
 
-/* Ajuste para el botón de apertura */
 #open-rsvp-modal {
     margin-top: 20px;
     background: var(--blanco);
@@ -258,11 +269,9 @@ footer {
 /* =========================
    CRONOGRAMA – EL PLAN
 ========================= */
-
 .timeline {
     margin-top: 40px;
     text-align: left;
-
 }
 
 .timeline__list {
@@ -278,7 +287,6 @@ footer {
     padding-bottom: 10px;
 }
 
-/* Punto elegante */
 .timeline__item::before {
     content: '';
     position: absolute;
@@ -291,126 +299,106 @@ footer {
     border: 2px solid var(--naranja);
 }
 
-/* Hora */
 .timeline__time {
-    font-family: 'Manrope', sans-serif;
-    font-size: 0.8rem;
+    font-size: 0.9rem;
     font-weight: 700;
-    letter-spacing: 1px;
-    text-transform: uppercase;
     color: var(--naranja);
     margin-bottom: 6px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
 }
 
-/* Título evento */
 .timeline__title {
-    font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.8rem;
     margin-bottom: 4px;
     color: var(--texto);
 }
 
-/* Descripción */
 .timeline__desc {
     font-size: 0.95rem;
     opacity: 0.8;
 }
 
-/* Línea final más sutil */
 .timeline__item:last-child {
-margin-bottom: 10%;
+    margin-bottom: 10%;
 }
 
 /* =========================
-   NUEVO ESTILO CARDS VIAJE
+   NUEVAS TARJETAS (INFO-CARD) 
+   (Reemplaza a las viejas .photo-card)
 ========================= */
-
 .logistics-grid {
     display: grid;
     gap: 30px;
     margin-top: 30px;
 }
 
-/* Card estilo editorial */
-.photo-card {
+.info-card {
     background: rgba(255, 255, 255, 0.95);
-    border-radius: 18px;
-    overflow: hidden;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.06);
-    transition: all 0.35s ease;
-    text-align: left;
-    
+    border-radius: 0; /* Sin picos redondeados */
+    padding: 30px 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.06);
+    text-align: center;
+    border: 1px solid rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
 }
 
-/* Hover más elegante */
-.photo-card:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(0,0,0,0.1);
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* Imagen más estética */
-.photo-card__img {
-    height: 220px;
-    overflow: hidden;
+/* Estilo para las ilustraciones dentro de las tarjetas */
+.ilustracion-icono {
+    width: 60px;
+    height: auto;
+    margin: 0 auto 15px auto;
+    display: block;
 }
 
-.photo-card__img img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: transform 0.6s ease;
-}
-
-/* Zoom suave al pasar el ratón */
-.photo-card:hover .photo-card__img img {
-    transform: scale(1.05);
-}
-
-/* Contenido más minimal */
-.photo-card__content {
-    padding: 25px;
+.info-card__content {
+    padding-top: 10px;
 }
 
 .card__title {
-    font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
     margin-bottom: 10px;
     color: var(--texto);
 }
 
-.card__text {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    opacity: 0.85;
-}
-
-/* Separación visual entre imagen y texto */
-.photo-card__content::before {
+.card__title::after {
     content: '';
     display: block;
     width: 40px;
     height: 2px;
     background: var(--naranja);
-    margin-bottom: 15px;
+    margin: 10px auto;
+}
+
+.card__text {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
 }
 
 .map-container {
     text-align: center;
     padding: 1.5rem;
-    background: #fff; /* Fondo blanco si lo quieres destacar */
+    background: #fff;
 }
+
 .paper-card {
-    background-color: var(--color-card);
-    padding: var(--spacing-sm);
-    border-radius: var(--radius-card);
-    box-shadow: var(--shadow-soft);
+    background-color: var(--crema);
+    padding: 15px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
     border: 1px solid rgba(0,0,0,0.03);
 }
 
 .titulos-card{
     margin-top: 10%;
-    font-size: 2rem;
-    
+    font-size: 2.5rem;
 }
 
 /* AJUSTES PC */

@@ -78,17 +78,25 @@ const i18n = {
         "btn-submit": "Confirmar",
         "location-title": "El plan",
         "location-text": "Nos casamos en Casa Catani, Barisano. Queremos disfrutar del aire libre y la buena compañía.",
+        
+        /* NUEVO CRONOGRAMA ES */
+        "ceremony-time": "12:00",
         "ceremony-title": "Ceremonia",
-        "ceremony-desc": "Casa Catani",
-        "party-title": "Aperitivo & Fiesta",
-        "party-desc": "Sin desplazamientos",
+        "ceremony-desc": "Comune di Cesena. Por favor, llegad al menos media hora antes (11:30).",
+        "bus-time": "12:45",
+        "bus-title": "Autobús",
+        "bus-desc": "Salida hacia Casa Catani desde Cesena.",
+        "party-time": "13:15",
+        "party-title": "Recepción",
+        "party-desc": "Inicio del cóctel y comida a Casa Catani. Vuelta en bus a Cesena (hora por confirmar).",
+
         "travel-title": "El viaje",
-        "travel-text": "Aeropuerto de Boloña (BLQ). El Marconi Express os lleva a la estación central. Trenes a Forlì cada 30 min.",
         "hotel-title-card": "Alojamiento",
         "hotel-text-card": "Estamos cerrando un hotel para todos. Os avisaremos pronto.",
         "vuelos-title": "Vuelos",
         "vuelos-text": "Aeropuerto recomendado: Bolonia (BLQ).",
         "transporte-title": "Transporte",
+        "travel-text": "Aeropuerto de Boloña (BLQ). El Marconi Express os lleva a la estación central. Trenes a Forlì cada 30 min.",
         "btn-map": "Ver mapa",
         "gift-title": "Un detalle para nosotros",
         "gift-text": "Vuestra presencia es el mejor regalo. Si deseáis hacernos un detalle:",
@@ -118,24 +126,32 @@ const i18n = {
         "label-allergies": "Hai qualche allergia o restrizione?",
         "label-song": "Quella canzone che non può mancare:",
         "btn-submit": "Conferma",
-        "location-title": "Natura allo stato puro",
+        "location-title": "Il piano",
         "location-text": "Ci sposiamo a Casa Catani, Barisano. Vogliamo godere dell'aria aperta e della buona compagnia.",
+        
+        /* NUOVO CRONOGRAMA IT */
+        "ceremony-time": "12:00",
         "ceremony-title": "Cerimonia",
-        "ceremony-desc": "Casa Catani",
-        "party-title": "Aperitivo & Festa",
-        "party-desc": "Senza spostamenti",
-        "travel-title": "Consigli per il viaggio",
-        "travel-text": "Aeroporto di Bologna (BLQ). Marconi Express fino alla stazione. Treni per Forlì ogni 30 min.",
+        "ceremony-desc": "Comune di Cesena. Vi preghiamo di arrivare almeno mezz'ora prima (11:30).",
+        "bus-time": "12:45",
+        "bus-title": "Pullman",
+        "bus-desc": "Partenza verso Casa Catani da Cesena.",
+        "party-time": "13:15",
+        "party-title": "Ricevimento",
+        "party-desc": "Inizio del cocktail e pranzo a Casa Catani. Il ritorno in pullman a Cesena è ancora da confermare.",
+
+        "travel-title": "Il viaggio",
         "hotel-title-card": "Alloggio",
         "hotel-text-card": "Stiamo definendo un hotel per tutti. Vi informeremo presto.",
         "vuelos-title": "Voli",
         "vuelos-text": "Aeroporto consigliato: Bologna (BLQ).",
         "transporte-title": "Trasporto",
+        "travel-text": "Aeroporto di Bologna (BLQ). Marconi Express fino alla stazione. Treni per Forlì ogni 30 min.",
         "btn-map": "Vedi mappa",
         "gift-title": "Un pensiero per noi",
         "gift-text": "La vostra presenza è il regalo più grande. Se volete farci un pensiero:",
         "thanks-text": "Grazie per far parte del viaggio.",
-        "error-msg": "Nome non trovato. Controlla se è escrito correttamente.",
+        "error-msg": "Nome non trovato. Controlla se è scritto correttamente.",
         "guestInput": "Inserisci il tuo nome e cognome",
         "extra-guest-title": "Ospite {i}",
         "extra-name": "Nome completo:",
@@ -158,6 +174,16 @@ const spanClose = document.getElementsByClassName("close-modal")[0];
 function setLanguage(lang) {
     currentLang = lang;
     const t = i18n[lang];
+    
+    // Resaltar el botón del idioma activo
+    document.querySelectorAll('.language-picker button').forEach(btn => {
+        if (btn.innerText.toLowerCase() === lang) {
+            btn.classList.add('active');
+        } else {
+            btn.classList.remove('active');
+        }
+    });
+
     for (let key in t) {
         let el = document.getElementById(key);
         if (el) {
@@ -166,10 +192,7 @@ function setLanguage(lang) {
         }
     }
     
-    // Traducción del botón de apertura (unificado)
     if (btnOpenModal) btnOpenModal.innerText = t["btn-open-rsvp"];
-    
-    // Traducción de opciones comunes por clase
     document.querySelectorAll(".opt-no-text").forEach(el => el.innerText = t["select-no"]);
     document.querySelectorAll(".opt-yes-text").forEach(el => el.innerText = t["select-yes"]);
     
