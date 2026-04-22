@@ -114,7 +114,7 @@ const i18n = {
         "btn-map": "Ver mapa",
         "btn-map2": "Ver mapa",
         "gift-title": "Un detalle para nosotros",
-        "gift-text": "Vuestra presencia es el mejor regalo. Si deseáis hacernos un detalle:",
+        "gift-text": "Vuestra presencia es el mejor regalo. Si aun así deseáis tener un detalle para ayudarnos a construir nuestro futuro y nuestras próximas aventuras juntos:",
         "thanks-text": "Gracias por formar parte del viaje.",
         "error-msg": "No encontramos ese nombre. Revisa si está bien escrito.",
         "guestInput": "Introduce tu nombre y apellidos",
@@ -132,7 +132,14 @@ const i18n = {
         "hour-letter": "h",
         "minute-letter": "m",
         "ceremonia-titulo":"La Ceremonia",
-        "casa-titulo":"La Celebración"
+        "casa-titulo":"La Celebración",
+        "opt-ninguna": "Ninguna / Como de todo",
+        "opt-veg": "Vegetariano",
+        "opt-vegan": "Vegano",
+        "opt-cel": "Celíaco / Sin gluten",
+        "opt-lac": "Intolerante a la lactosa",
+        "opt-otra": "Otra restricción / Tengo varias",
+        "lbl-especificar": "Por favor, especifica:"
     },
     it: {
         "welcome-msg": "Ciao! Siamo felici che tu sia qui.",
@@ -174,7 +181,7 @@ const i18n = {
         "btn-map": "Vedi mappa",
         "btn-map2": "Vedi mappa",
         "gift-title": "Un pensiero per noi",
-        "gift-text": "La vostra presenza è il regalo più grande. Se volete farci un pensiero:",
+        "gift-text": "La vostra presenza è il regalo più grande. Se comunque desiderate farci un pensiero per aiutarci a costruire il nostro futuro e le nostre prossime avventure insieme:",
         "thanks-text": "Grazie per far parte del viaggio.",
         "error-msg": "Nome non trovato. Controlla se è scritto correttamente.",
         "guestInput": "Inserisci il tuo nome e cognome",
@@ -192,7 +199,14 @@ const i18n = {
         "hour-letter": "o",
         "minute-letter": "m",
         "ceremonia-titulo":"La Ceremonia",
-        "casa-titulo":"Il Ricevimento"
+        "casa-titulo":"Il Ricevimento",
+        "opt-ninguna": "Nessuna / Mangio di tutto",
+        "opt-veg": "Vegetariano",
+        "opt-vegan": "Vegano",
+        "opt-cel": "Celiaco / Senza glutine",
+        "opt-lac": "Intollerante al lattosio",
+        "opt-otra": "Altra restrizione / Ne ho diverse",
+        "lbl-especificar": "Per favore, specifica:"
 
     }
 };
@@ -285,7 +299,7 @@ function toggleGuestFields() {
     const t = i18n[currentLang];
     container.innerHTML = ''; 
 
-    if (invitadoActual.puestos > 1) {
+if (invitadoActual.puestos > 1) {
         for (let i = 1; i < invitadoActual.puestos; i++) {
             const guestDiv = document.createElement('div');
             guestDiv.className = 'guest-extra-fields';
@@ -319,11 +333,29 @@ function toggleGuestFields() {
                             <option value="si">${t["select-yes"]}</option>
                         </select>
                     </div>
+                    
                     <div class="form-group">
                         <label>${t["label-allergies"]}</label>
-                        <textarea name="guest_allergies_${i}" rows="2"></textarea>
+                        <select name="guest_dieta_especial_${i}" id="alergias-select-${i}" onchange="mostrarCajetinAlergiasGuest(${i})">
+                            <option value="ninguna">${t["opt-ninguna"]}</option>
+                            <option value="vegetariano">${t["opt-veg"]}</option>
+                            <option value="vegano">${t["opt-vegan"]}</option>
+                            <option value="celiaco">${t["opt-cel"]}</option>
+                            <option value="lactosa">${t["opt-lac"]}</option>
+                            <option value="otra">${t["opt-otra"]}</option>
+                        </select>
+
+                        <div id="cajetin-otra-alergia-${i}" style="display: none; margin-top: 15px;">
+                            <label style="font-size: 0.9rem;">${t["lbl-especificar"]}</label>
+                            <input type="text" name="guest_alergias_detalle_${i}">
+                        </div>
+                    </div>
+                    <div class="form-group" style="margin-top: 15px;">
+                        <label>${t["label-song"]}</label>
+                        <input type="text" name="guest_song_${i}">
                     </div>
                 </div>
+                
             `;
             container.appendChild(guestDiv);
         }
@@ -455,5 +487,31 @@ function initScrollAnimations() {
         }
         observer.observe(el);
     });
+}
+
+function mostrarCajetinAlergias() {
+    const select = document.getElementById('alergias-select');
+    const cajetin = document.getElementById('cajetin-otra-alergia');
+    
+    if (select.value === 'otra') {
+        cajetin.style.display = 'block';
+    } else {
+        cajetin.style.display = 'none';
+        // Limpiamos el texto si cambian de opinión
+        document.querySelector('input[name="alergias_detalle"]').value = ''; 
+    }
+}
+function mostrarCajetinAlergiasGuest(index) {
+    // Buscamos el select y el cajetín usando el número del invitado (index)
+    const select = document.getElementById(`alergias-select-${index}`);
+    const cajetin = document.getElementById(`cajetin-otra-alergia-${index}`);
+    
+    if (select.value === 'otra') {
+        cajetin.style.display = 'block';
+    } else {
+        cajetin.style.display = 'none';
+        // Limpiamos el texto si cambian de opinión
+        document.querySelector(`input[name="guest_alergias_detalle_${index}"]`).value = ''; 
+    }
 }
 setLanguage('es'); // Inicialización por defecto

@@ -73,17 +73,30 @@
                         </select>
                     </div>
 
-                    <div class="form-group">
-                        <label id="label-allergies"></label>
-                        <textarea name="allergies" rows="2"></textarea>
+                <div class="form-group">
+                    <label id="label-allergies"></label>
+                    <select name="dieta_especial" id="alergias-select" onchange="mostrarCajetinAlergias()">
+                        <option value="ninguna" id="opt-ninguna"></option>
+                        <option value="vegetariano" id="opt-veg"></option>
+                        <option value="vegano" id="opt-vegan"></option>
+                        <option value="celiaco" id="opt-cel"></option>
+                        <option value="lactosa" id="opt-lac"></option>
+                        <option value="otra" id="opt-otra"></option>
+                    </select>
+
+                    <div id="cajetin-otra-alergia" style="display: none; margin-top: 15px;">
+                        <label id="lbl-especificar" style="font-size: 0.9rem;"></label>
+                        <input type="text" name="alergias_detalle">
                     </div>
-
-                    <div id="guests-container"></div>
-
                     <div class="form-group" style="margin-top: 30px; border-top: 1px solid var(--borde); padding-top: 20px;">
                         <label id="label-song"></label>
                         <input type="text" name="song">
                     </div>
+                </div>
+
+                    <div id="guests-container"></div>
+
+
 
                     <button type="submit" id="btn-submit"></button>
                 </form>
