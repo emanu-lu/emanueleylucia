@@ -533,6 +533,18 @@ html {
         max-width: 900px; 
     }
 
+    .search-box {
+        max-width: 400px; /* Tamaño máximo de la caja */
+        margin-left: auto; /* Centra la caja horizontalmente */
+        margin-right: auto; 
+        padding-left: 0; /* Quitamos el espacio extra de los lados que tenía en móvil */
+        padding-right: 0;
+    }
+
+    #countdown{
+margin-bottom: 0;
+    }
+
     /* MAGIA: Convertimos la pila de 1 columna en 3 columnas alineadas horizontalmente */
     .logistics-grid {
         grid-template-columns: repeat(3, 1fr);
@@ -551,13 +563,14 @@ html {
     }
 
     .fotomaton {
-        max-width: 400px; /* La foto principal un poco más grande pero controlada */
+        max-width: 250px; /* La foto principal un poco más grande pero controlada */
     }
 
     .puestos {
         margin-top: 5%;
         margin-bottom: 5%;
     }
+    
 }
 
 /* AJUSTES ESCRITORIO GRANDE (Pantallas de PC completas) */
@@ -578,3 +591,113 @@ html {
         padding: 0 40px;
     }
 }
+/* =========================
+   DISEÑO DE HISTORIA (ANCHO COMPLETO)
+========================= */
+.section-container.story {
+    width: 100%;
+    max-width: none; /* Rompemos el límite de 500px/600px */
+    border-radius: 0; /* Opcional: quitar bordes redondeados para que sea 100% inmersivo */
+    padding: 60px 10%;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    align-items: center;
+}
+
+/* En escritorio, la historia se divide en dos lados */
+@media (min-width: 768px) {
+    .section-container.story {
+        flex-direction: row; /* Texto y mapa/foto lado a lado */
+        justify-content: space-between;
+        text-align: left;
+    }
+
+    .section-container.story .polaroid-item, 
+    .section-container.story #story-text {
+        flex: 1; /* Ambos ocupan el 50% */
+        max-width: 45%;
+    }
+}
+
+/* =========================
+   FILA DE EVENTOS (CEREMONIA, CELEB, PLAN)
+========================= */
+.event-grid-row {
+    display: flex;
+    flex-direction: column; /* Por defecto en móvil, uno bajo otro */
+    gap: 20px;
+    width: 90%;
+    margin: 0 auto;
+}
+
+@media (min-width: 1024px) {
+    .event-grid-row {
+        flex-direction: row; /* En PC se ponen en fila */
+        justify-content: center;
+        align-items: stretch; /* Para que todas las cajas tengan la misma altura */
+        max-width: 1200px;
+    }
+
+    .event-grid-row .section-container {
+        flex: 1; /* Se reparten el espacio equitativamente */
+        margin: 0; /* Quitamos márgenes laterales para que el gap lo controle */
+    }
+}
+/* =========================
+   ESTILOS LÍNEA DEL TIEMPO HORIZONTAL
+========================= */
+
+/* Ajuste del contenedor general */
+.timeline-horizontal-section {
+    width: 90% !important;
+    max-width: 1200px !important;
+    margin: 40px auto !important;
+}
+
+@media (min-width: 1024px) {
+    /* Quitamos el borde lateral y lo ponemos arriba */
+    .timeline.horizontal .timeline__list {
+        display: flex;
+        flex-direction: row;
+        border-left: none;
+        border-top: 2px solid var(--naranja);
+        margin-left: 0;
+        padding-left: 0;
+        padding-top: 30px;
+        justify-content: space-between;
+    }
+
+    .timeline.horizontal .timeline__item {
+        flex: 1;
+        text-align: center;
+        padding-bottom: 0;
+        margin-bottom: 0;
+    }
+
+    /* Movemos los puntos decorativos a la línea superior */
+    .timeline.horizontal .timeline__item::before {
+        left: 50%;
+        top: -41px; /* Ajuste para que quede justo sobre la línea */
+        transform: translateX(-50%);
+    }
+
+    /* Ajuste de textos en horizontal */
+    .timeline.horizontal .timeline__title {
+        font-size: 1.5rem;
+    }
+    
+    .timeline.horizontal .timeline__desc {
+        padding: 0 10px;
+    }
+}
+
+/* Mantener vertical en móviles (por debajo de 1024px) */
+@media (max-width: 1023px) {
+    .timeline.horizontal .timeline__list {
+        border-left: 2px solid var(--naranja);
+        margin-left: 30px;
+        padding-left: 30px;
+    }
+}
+
