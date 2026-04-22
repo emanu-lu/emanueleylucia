@@ -1,7 +1,7 @@
 /* VARIABLES Y PALETA DE COLORES */
 :root {
     --naranja: #5FB49C;
-    --crema: #F7FBEE;
+    --crema: #FFFFFF;
     --texto: #2C3E50;
     --blanco: #FFFFFF;
     --borde: #98DFAF;
@@ -64,7 +64,6 @@ h2, .titulos-card {
     width: 90%; 
     max-width: 500px;
     margin: 0 auto 30px auto; 
-    background-color: rgba(255, 251, 245, 0.5);
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
     border-radius: 15px; 
     box-sizing: border-box; 
@@ -193,6 +192,7 @@ button#btn-search, button#btn-submit {
     padding: 12px 30px;
     border: 1.5px solid var(--naranja);
     color: var(--naranja);
+    background-color: #FFFFFF;
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
