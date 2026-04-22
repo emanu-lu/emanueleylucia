@@ -22,7 +22,8 @@ const invitados = [
     // FAMIGLIA LUCI (Spagnolo)
     { nombre: "Bella González", puestos: 1, idioma: "es" },
     {nombre:"José Manuel García", puestos:1, idioma:"es"},
-    { nombre: "Luis García", puestos: 2, idioma: "es" },
+    { nombre: "Luis García", puestos: 1, idioma: "es" },
+    { nombre: "Belén Martinez", puestos: 1, idioma: "es" },
     { nombre: "Inmaculada Aponte", puestos: 2, idioma: "es" },
     { nombre: "Alejandro Prieto", puestos: 2, idioma: "es" },
     { nombre: "Juanjo Prieto", puestos: 1, idioma: "es" },
@@ -64,7 +65,7 @@ const invitados = [
     { nombre: "Clara Lledó", puestos: 1, idioma: "es" },
     { nombre: "Xavier Soto", puestos: 2, idioma: "es" },
     { nombre: "Hugo Arias", puestos: 1, idioma: "es" },
-    { nombre: "Pere", puestos: 1, idioma: "es" },
+    { nombre: "Pere Coll", puestos: 1, idioma: "es" },
     { nombre: "Joshua", puestos: 1, idioma: "es" },
     { nombre: "Pedro Tena", puestos: 1, idioma: "es" },
     { nombre: "Pedro Manuel Barquero", puestos: 1, idioma: "es" },
