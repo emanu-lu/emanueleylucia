@@ -1,10 +1,10 @@
 /* VARIABLES Y PALETA DE COLORES */
 :root {
-    --naranja: #E67E22;
-    --crema: #FFFBF5;
+    --naranja: #5FB49C;
+    --crema: #F7FBEE;
     --texto: #2C3E50;
     --blanco: #FFFFFF;
-    --borde: #D1D1D1;
+    --borde: #98DFAF;
 }
 
 /* RESET BÁSICO */
@@ -24,6 +24,8 @@ body {
     line-height: 1.6;
     text-align: center;
     -webkit-font-smoothing: antialiased;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 input, textarea, select, button, p, .timeline__desc, .card__text, .iban-box {
@@ -37,33 +39,43 @@ h1, h2, .date, .titulos-card, #location-title, #travel-title, #gift-title, .card
 }
 
 h2, .titulos-card {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     margin-bottom: 20px;
     color: var(--texto);
+    margin-right: 30px;
+    margin-left: 30px;
 }
 
-.bienvenida{
- line-height: 30px;
- padding: 20px;
- color: var(--blanco)
+.puestos {
+    margin-top: 20%;
+    margin-bottom: 10%;
+}
+
+.bienvenida {
+    line-height: 30px;
+    padding: 20px;
+    color: var(--blanco);
 }
 
 /* SECCIONES CONTENEDORAS */
+/* Modificado para unificar márgenes laterales al 90% en móvil */
 .section-container {
-    padding: 30px 35px;
+    padding: 30px 20px; 
+    width: 90%; 
     max-width: 500px;
-    margin: auto;
-    margin-bottom: 20px;
-    width: 100%; 
+    margin: 0 auto 30px auto; 
     background-color: rgba(255, 251, 245, 0.5);
     box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+    border-radius: 15px; 
+    box-sizing: border-box; 
 }
 
 /* HERO SECTION */
 .hero {
     padding-top: 20px;
 }
-.hero-content{
+
+.hero-content {
     padding: 30px;
     margin-bottom: 10px;
     max-width: 250px;
@@ -94,14 +106,6 @@ h1 {
     margin-bottom: 0;
 }
 
-.countdown {
-    font-weight: 300;
-    color: var(--blanco);
-    font-size: 0.9rem;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
 /* =========================
    SELECTOR DE IDIOMA Y BOTONES
 ========================= */
@@ -125,6 +129,20 @@ h1 {
     transition: all 0.3s ease;
 }
 
+#countdown {
+    font-family: 'Sen', sans-serif;
+    color: var(--texto);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 30%;
+}
+
+#logged-hero-info {
+    padding: 0 20px;
+    margin-bottom: 40px;
+}
+
 /* Estilo cuando el idioma está seleccionado */
 .language-picker button.active {
     opacity: 1;
@@ -133,13 +151,14 @@ h1 {
     transform: scale(1.1);
 }
 
-.text-justified{
-    font-size: 1.2rem;
-    text-align: center;
+.text-justified {
+    font-size: 1rem;
+    text-align: justify;
     line-height: 1.8;
 }
 
-.search-box{
+.search-box {
+    margin-top: 40px;
     padding-left: 10%;
     padding-right: 10%;
 }
@@ -154,7 +173,7 @@ input[type="text"], textarea, select {
 
 button#btn-search, button#btn-submit {
     width: 100%;
-    background-color:rgba(255, 255, 255, 0.379);
+    background-color:#98DFAF;
     color: var(--texto);
     padding: 15px;
     border: none;
@@ -166,16 +185,24 @@ button#btn-search, button#btn-submit {
     letter-spacing: 1px;
 }
 
+/* Botón secundario actualizado (Botón Mapa y Confirmar asistencia) */
 .btn-secundario {
     display: inline-block;
-    margin-top: 15px;
-    padding: 10px 30px;
+    margin-top: 5px;
+    margin-bottom: 25px; 
+    padding: 12px 30px;
     border: 1.5px solid var(--naranja);
     color: var(--naranja);
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     font-size: 0.9rem;
+    transition: background-color 0.3s ease;
+}
+
+.btn-secundario:hover {
+    background-color: var(--naranja);
+    color: var(--blanco);
 }
 
 .iban-box {
@@ -186,11 +213,11 @@ button#btn-search, button#btn-submit {
     margin: 20px 0;
 }
 
-.form-group{
+.form-group {
     text-align: left;
 }
 
-.checkbox-wrapper{
+.checkbox-wrapper {
     margin-bottom: 10px;
 }
 
@@ -325,8 +352,15 @@ footer {
 
 /* =========================
    NUEVAS TARJETAS (INFO-CARD) 
-   (Reemplaza a las viejas .photo-card)
 ========================= */
+/* Contenedores de logística y regalos (Sin caja de fondo doble) */
+.logistics.container, .gift.container {
+    width: 90%;
+    max-width: 500px;
+    margin: 0 auto 30px auto;
+    padding: 0; 
+}
+
 .logistics-grid {
     display: grid;
     gap: 30px;
@@ -335,7 +369,7 @@ footer {
 
 .info-card {
     background: rgba(255, 255, 255, 0.95);
-    border-radius: 0; /* Sin picos redondeados */
+    border-radius: 15px; 
     padding: 30px 20px;
     margin-bottom: 20px;
     box-shadow: 0 10px 30px rgba(0,0,0,0.06);
@@ -349,9 +383,9 @@ footer {
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* Estilo para las ilustraciones dentro de las tarjetas */
+/* Ilustraciones de las tarjetas hechas más grandes */
 .ilustracion-icono {
-    width: 60px;
+    width: 100px; 
     height: auto;
     margin: 0 auto 15px auto;
     display: block;
@@ -396,13 +430,151 @@ footer {
     border: 1px solid rgba(0,0,0,0.03);
 }
 
-.titulos-card{
+.titulos-card {
     margin-top: 10%;
     font-size: 2.5rem;
 }
 
-/* AJUSTES PC */
+/* =========================
+   NUEVAS IMÁGENES Y DECORACIÓN
+========================= */
+/* Foto de la ubicación */
+.venue-photo {
+    width: 100%;
+    height: auto;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+}
+
+/* Ilustraciones decorativas (estrellas, sol, pajaritos, flores) */
+.decoracion-img {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.decoracion-img img {
+    width: 90px; 
+    opacity: 0.8; 
+}
+
+/* =========================
+   ANIMACIONES Y TRANSICIONES
+========================= */
+
+/* Comportamiento de scroll suave para toda la página */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Animación de Fade-Up para el scroll */
+.fade-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94), transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Transición fluida para el cambio de pantalla inicial */
+#access-section, #hero-photo {
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+#main-content, #rsvp-greeting {
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+#main-content.show-content, #rsvp-greeting.show-content {
+    opacity: 1;
+}
+
+/* Animación suave para el Modal (Sobreescribimos la clase actual) */
+.modal {
+    display: flex; /* Cambiamos a flex para centrar mejor el contenido */
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.modal.show {
+    opacity: 1;
+    visibility: visible;
+}
+
+.modal-content {
+    transform: scale(0.9);
+    transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    margin: 0 auto; /* Ajuste para flexbox */
+}
+
+.modal.show .modal-content {
+    transform: scale(1);
+}
+/* =========================
+   DISEÑO RESPONSIVO (MOBILE -> DESKTOP)
+========================= */
+
+/* AJUSTES TABLET Y ESCRITORIO PEQUEÑO */
 @media (min-width: 768px) {
-    .section-container { max-width: 600px; }
-    h1 { font-size: 4.5rem; }
+    /* Ensanchamos los contenedores principales para aprovechar la pantalla */
+    .section-container { 
+        max-width: 700px; 
+        padding: 40px; 
+    }
+    
+    .logistics.container, .gift.container { 
+        max-width: 900px; 
+    }
+
+    /* MAGIA: Convertimos la pila de 1 columna en 3 columnas alineadas horizontalmente */
+    .logistics-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+
+    /* Ajustes del título y la imagen principal (Hero) */
+    h1 { 
+        font-size: 5rem; 
+        text-align: center;
+        text-align-last: center; /* Centramos visualmente en PC */
+    }
+
+    .hero-content {
+        max-width: 600px; /* Damos más aire al título principal */
+    }
+
+    .fotomaton {
+        max-width: 400px; /* La foto principal un poco más grande pero controlada */
+    }
+
+    .puestos {
+        margin-top: 5%;
+        margin-bottom: 5%;
+    }
+}
+
+/* AJUSTES ESCRITORIO GRANDE (Pantallas de PC completas) */
+@media (min-width: 1024px) {
+    body {
+        padding-top: 40px; /* Añadimos más respiro superior en monitores grandes */
+    }
+
+    /* Controlamos que las fotos de los lugares no se vuelvan gigantes */
+    .venue-photo {
+        max-width: 80%; 
+        margin: 0 auto 30px auto;
+        display: block;
+    }
+
+    /* Centramos el texto de la historia para que se lea mejor como bloque */
+    .story p {
+        padding: 0 40px;
+    }
 }

@@ -77,7 +77,8 @@ const i18n = {
         "label-song": "Canción imprescindible para la fiesta:",
         "btn-submit": "Confirmar",
         "location-title": "El plan",
-        "location-text": "Nos casamos en Casa Catani, Barisano. Queremos disfrutar del aire libre y la buena compañía.",
+        "location-text": "Celebraremos en Casa Catani, Barisano. Queremos disfrutar del aire libre y la buena compañía.",
+        "ceremonia-text":"La ceremonia tendrá lugar en la Sala de los Espejos, en el ayuntamiento de Cesena.",
         
         /* NUEVO CRONOGRAMA ES */
         "ceremony-time": "12:00",
@@ -98,6 +99,7 @@ const i18n = {
         "transporte-title": "Transporte",
         "travel-text": "Aeropuerto de Boloña (BLQ). El Marconi Express os lleva a la estación central. Trenes a Forlì cada 30 min.",
         "btn-map": "Ver mapa",
+        "btn-map2": "Ver mapa",
         "gift-title": "Un detalle para nosotros",
         "gift-text": "Vuestra presencia es el mejor regalo. Si deseáis hacernos un detalle:",
         "thanks-text": "Gracias por formar parte del viaje.",
@@ -109,7 +111,14 @@ const i18n = {
         "select-yes": "Sí",
         "sending": "Enviando...",
         "sent-ok": "¡Datos guardados! Gracias.",
-        "sent-error": "Error al enviar. Inténtalo de nuevo."
+        "sent-error": "Error al enviar. Inténtalo de nuevo.",
+        "deadline-text": "Por favor, confirmar antes del 30 de junio de 2026",
+        "countdown-suffix": "PARA EL GRAN DÍA",
+        "day-letter": "d",
+        "hour-letter": "h",
+        "minute-letter": "m",
+        "ceremonia-titulo":"La Ceremonia",
+        "casa-titulo":"La Celebración"
     },
     it: {
         "welcome-msg": "Ciao! Siamo felici che tu sia qui.",
@@ -127,7 +136,8 @@ const i18n = {
         "label-song": "Quella canzone che non può mancare:",
         "btn-submit": "Conferma",
         "location-title": "Il piano",
-        "location-text": "Ci sposiamo a Casa Catani, Barisano. Vogliamo godere dell'aria aperta e della buona compagnia.",
+       "location-text": "Festeggeremo a Casa Catani, Barisano. Vogliamo godere dell'aria aperta e della buona compagnia.",
+        "ceremonia-text": "La cerimonia avrà luogo nella Sala degli Specchi, presso il comune di Cesena.",
         
         /* NUOVO CRONOGRAMA IT */
         "ceremony-time": "12:00",
@@ -148,6 +158,7 @@ const i18n = {
         "transporte-title": "Trasporto",
         "travel-text": "Aeroporto di Bologna (BLQ). Marconi Express fino alla stazione. Treni per Forlì ogni 30 min.",
         "btn-map": "Vedi mappa",
+        "btn-map2": "Vedi mappa",
         "gift-title": "Un pensiero per noi",
         "gift-text": "La vostra presenza è il regalo più grande. Se volete farci un pensiero:",
         "thanks-text": "Grazie per far parte del viaggio.",
@@ -159,7 +170,15 @@ const i18n = {
         "select-yes": "Sì",
         "sending": "Invio in corso...",
         "sent-ok": "Dati salvati! Grazie.",
-        "sent-error": "Errore durante l'invio. Riprova."
+        "sent-error": "Errore durante l'invio. Riprova.",
+        "deadline-text": "Per favore, conferma entro il 30 giugno 2026",
+        "countdown-suffix": "PER IL GRANDE GIORNO",
+        "day-letter": "g",
+        "hour-letter": "o",
+        "minute-letter": "m",
+        "ceremonia-titulo":"La Ceremonia",
+        "casa-titulo":"Il Ricevimento"
+
     }
 };
 
@@ -208,13 +227,37 @@ function validateGuest() {
 
     if (guest) {
         invitadoActual = guest; 
-        document.getElementById('access-section').style.display = 'none';
-        document.getElementById('hero-photo').style.display = 'none'; 
-        document.getElementById('main-content').style.display = 'block';
-        document.getElementById('rsvp-greeting').style.display = 'block'; 
-        btnOpenModal.style.display = 'inline-block';
         
-        setLanguage(guest.idioma);
+        // Transición suave al validar
+        const accessSection = document.getElementById('access-section');
+        const heroPhoto = document.getElementById('hero-photo');
+        
+        accessSection.style.opacity = '0';
+        accessSection.style.transform = 'scale(0.95)';
+        heroPhoto.style.opacity = '0';
+
+        // Esperamos a que termine el fade-out para mostrar el contenido
+        setTimeout(() => {
+            accessSection.style.display = 'none';
+            heroPhoto.style.display = 'none'; 
+            
+            const mainContent = document.getElementById('main-content');
+            const rsvpGreeting = document.getElementById('rsvp-greeting');
+            
+            mainContent.style.display = 'block';
+            rsvpGreeting.style.display = 'block';
+            btnOpenModal.style.display = 'inline-block';
+            
+            // Forzamos el reflow antes de añadir la clase de opacidad
+            void mainContent.offsetWidth;
+            
+            mainContent.classList.add('show-content');
+            rsvpGreeting.classList.add('show-content');
+            
+            setLanguage(guest.idioma);
+            initScrollAnimations(); // Iniciamos el efecto scroll al cargar el contenido
+        }, 500);
+
     } else {
         const errorMsg = document.getElementById('error-msg');
         errorMsg.innerText = i18n[currentLang]["error-msg"];
@@ -279,24 +322,46 @@ function actualizarMensajeReserva() {
 }
 
 function updateCountdown() {
-    const weddingDate = new Date('September 12, 2026 17:00:00').getTime();
-    const now = new Date().getTime();
-    const diff = weddingDate - now;
-    const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-    const el = document.getElementById('countdown');
-    if (el) el.innerText = `Faltan ${days} días / Mancano ${days} giorni`;
+    const weddingDate = new Date('September 12, 2026 12:00:00').getTime();
+    
+    const x = setInterval(function() {
+        const t = i18n[currentLang];
+        const now = new Date().getTime();
+        const diff = weddingDate - now;
+
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+
+        const el = document.getElementById('countdown');
+        if (el) {
+            el.innerHTML = `
+                <div>${days}${t["day-letter"]} ${hours}${t["hour-letter"]} ${minutes}${t["minute-letter"]}</div>
+                <small style="font-size: 0.8rem; display: block;">${t["countdown-suffix"]}</small>
+            `;
+        }
+    }, 1000);
 }
 
+// Apertura y cierre del modal con animaciones
 if (btnOpenModal) {
-    btnOpenModal.onclick = function() { modal.style.display = "block"; }
+    btnOpenModal.onclick = function() { 
+        modal.style.display = "flex"; // Requisito inicial para la transición
+        setTimeout(() => modal.classList.add("show"), 10);
+    }
 }
 if (spanClose) {
-    spanClose.onclick = function() { modal.style.display = "none"; }
+    spanClose.onclick = function() { 
+        modal.classList.remove("show"); 
+        setTimeout(() => modal.style.display = "none", 400); // Esperar a que acabe la animación
+    }
 }
 window.onclick = function(event) {
-    if (event.target == modal) { modal.style.display = "none"; }
+    if (event.target == modal) { 
+        modal.classList.remove("show"); 
+        setTimeout(() => modal.style.display = "none", 400);
+    }
 }
-
 document.getElementById('rsvp-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const t = i18n[currentLang];
@@ -329,4 +394,33 @@ document.getElementById('rsvp-form').addEventListener('submit', function(e) {
 });
 
 updateCountdown();
+// Lógica para animaciones al hacer scroll
+function initScrollAnimations() {
+    const observerOptions = {
+        root: null,
+        rootMargin: '0px',
+        threshold: 0.15 // El elemento animará cuando el 15% sea visible
+    };
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+                observer.unobserve(entry.target); // Dejamos de observar para que no se anime 2 veces
+            }
+        });
+    }, observerOptions);
+
+    // Seleccionamos todos los elementos que queremos animar
+    const elementsToAnimate = document.querySelectorAll('.section-container, .info-card, .timeline__item, .decoracion-img');
+    
+    elementsToAnimate.forEach((el, index) => {
+        el.classList.add('fade-up');
+        // Pequeño delay dinámico opcional si los elementos están en grid
+        if (el.classList.contains('info-card')) {
+            el.style.transitionDelay = `${index * 0.1}s`; 
+        }
+        observer.observe(el);
+    });
+}
 setLanguage('es'); // Inicialización por defecto

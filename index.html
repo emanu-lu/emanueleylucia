@@ -22,11 +22,12 @@
             <p class="date">12 . 09 . 2026</p>
         </div>
         <div class="photo-wrapper">
-            <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1770989368/fotomaton_aakpn4.png" alt="E & L" class="fotomaton" id="hero-photo">
+            <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867158/fotomaton_aakpn4.png" alt="E & L" class="fotomaton" id="hero-photo">
             </div>
 
-            <h2 id="rsvp-greeting" style="display:none;"></h2>
+            <h2 id="rsvp-greeting" style="display:none;" class="puestos"></h2>
             <button id="btn-open-rsvp" style="display:none;" class="btn-secundario"></button>
+            
     </header>
     
     <section id="access-section">
@@ -86,20 +87,37 @@
         </div>
     </div>
 
-    <main id="main-content" style="display:none;">
+<main id="main-content" style="display:none;">
+        <p id="deadline-text" style="font-style: italic; margin-top: 15px; color: var(--naranja);"></p>
+        
+        <div class="decoracion-img"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867525/7_rsffwq.png" alt="Estrellas"></div>
+        
+        <div id="countdown"></div>
+        
+        <div class="decoracion-img"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/6_wwxtgg.png" alt="Pajaritos"></div>
+
         <section class="section-container story">
-            <div class="polaroid-carousel">
-                <div class="polaroid-item"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1770846947/1_yhb1qm.png" alt="1"></div>
-                <div class="polaroid-item"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1770846948/3_vodkbj.png" alt="2"></div>
-                <div class="polaroid-item"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1770846947/4_ojc7rp.png" alt="3"></div>
-            </div>
+            <div class="polaroid-item"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867172/1_yhb1qm.png"></div>
             <p id="story-text" class="text-justified"></p>
         </section>
 
-        <section class="section-container">
-            <h2 id="location-title"></h2>
-            <section class="section-container">
-            <h2 id="location-title"></h2>
+        <div class="decoracion-img"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/9_x9lhrv.png" alt="Sol"></div>
+<section class="section-container location-card">
+ <h2 id="ceremonia-titulo"></h2>
+            <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776870793/1920px-PPA9841_palazzo_comunale_04-1024x682_ela9hs.jpg" alt="Ayuntamiento" class="venue-photo">
+            <p id="ceremonia-text" class="text-justified" style="margin-bottom: 20px;"></p>
+            
+            <a href="TU_ENLACE_A_GOOGLE_MAPS_AQUI" target="_blank" id="btn-map" class="btn-secundario"></a>
+</section>
+<section class="section-container location-card">
+ <h2 id="casa-titulo"></h2>
+            <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1772993263/20250619-121052_2_123122-175197018018054_ypkmb1.jpg" alt="Casa Catani" class="venue-photo">
+            <p id="location-text" class="text-justified" style="margin-bottom: 20px;"></p>
+            
+            <a href="TU_ENLACE_A_GOOGLE_MAPS_AQUI" target="_blank" id="btn-map2" class="btn-secundario"></a>
+</section>
+ <h2 id="location-title"></h2>
+        <section class="section-container location-card">
             <section class="timeline container">
                 <div class="timeline__list">
                     <article class="timeline__item">
@@ -127,25 +145,25 @@
             </section>
         </section>
 
-        <section class="logistics container section-container">
+        <section class="logistics container">
             <h2 id="travel-title" class="titulos-card"></h2>
             <div class="logistics-grid">
                 <div class="info-card">
-                    <img src="tu-ilustracion-hotel.png" alt="Hotel" class="ilustracion-icono">
+                    <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867525/2_dtj6wb.png" alt="Hotel" class="ilustracion-icono">
                     <div class="info-card__content">
                         <h3 class="card__title" id="hotel-title-card"></h3>
                         <p class="card__text" id="hotel-text-card"></p>
                     </div>
                 </div>
                 <div class="info-card">
-                    <img src="tu-ilustracion-vuelo.png" alt="Vuelos" class="ilustracion-icono">
+                    <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867525/5_fd7phw.png" alt="Vuelos" class="ilustracion-icono">
                     <div class="info-card__content">
                         <h3 class="card__title" id="vuelos-title"></h3>
                         <p class="card__text" id="vuelos-text"></p>
                     </div>
                 </div>
                 <div class="info-card">
-                    <img src="tu-ilustracion-transporte.png" alt="Transporte" class="ilustracion-icono">
+                    <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867858/Dise%C3%B1o_sin_t%C3%ADtulo_78_eev8dh.png" alt="Transporte" class="ilustracion-icono">
                     <div class="info-card__content">
                         <h3 class="card__title" id="transporte-title"></h3>
                         <p class="card__text" id="travel-text"></p>
@@ -154,11 +172,12 @@
             </div>
         </section>
 
-        <section class="section-container gift">
+        <div class="decoracion-img"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/8_w4pzuu.png" alt="Flores"></div>
+
+        <section class="gift container">
             <h2 id="gift-title" class="titulos-card"></h2>
-            
             <div class="info-card">
-                <img src="tu-ilustracion-regalo.png" alt="Regalo" class="ilustracion-icono">
+                <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/1_o3weql.png" alt="Regalo" class="ilustracion-icono">
                 <div class="info-card__content">
                     <p id="gift-text" class="card__text"></p>
                     <div class="iban-box">
