@@ -3,7 +3,8 @@ const invitados = [
     { nombre: "Lucía García", puestos: 1, idioma: "es" },
     { nombre: "Emanuele Ceccarelli", puestos: 1, idioma: "it" },
     // FAMIGLIA EMI (Italiano)
-    { nombre: "Sara Cecarrelli", puestos: 2, idioma: "it" },
+    { nombre: "Sara Ferrotti", puestos: 1, idioma: "it" },
+    { nombre: "Gianluca Cecarrelli", puestos: 1, idioma: "it" },
     { nombre: "Martina Ceccarelli", puestos: 2, idioma: "it" },
     { nombre: "Letizia Ceccarelli", puestos: 2, idioma: "it" },
     { nombre: "Michele Ceccarelli", puestos: 1, idioma: "it" },
