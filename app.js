@@ -4,7 +4,7 @@ const invitados = [
     { nombre: "Emanuele Ceccarelli", puestos: 1, idioma: "it" },
     // FAMIGLIA EMI (Italiano)
     { nombre: "Sara Ferrotti", puestos: 1, idioma: "it" },
-    { nombre: "Gianluca Cecarelli", puestos: 1, idioma: "it" },
+    { nombre: "Gianluca Ceccarelli", puestos: 1, idioma: "it" },
     { nombre: "Martina Ceccarelli", puestos: 2, idioma: "it" },
     { nombre: "Letizia Ceccarelli", puestos: 2, idioma: "it" },
     { nombre: "Michele Ceccarelli", puestos: 1, idioma: "it" },
