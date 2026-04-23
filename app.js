@@ -50,13 +50,13 @@ const invitados = [
     { nombre: "Leonardo Neri", puestos: 1, idioma: "it" },
 
     // AMICI SPAGNOLI (Spagnolo)
-    { nombre: "Jesus Camacho", puestos: 1, idioma: "es" },
+    { nombre: "Jesús Camacho", puestos: 1, idioma: "es" },
     { nombre: "Natalia Garrido", puestos: 2, idioma: "es" },
     { nombre: "Lara Troncoso", puestos: 1, idioma: "es" },
     { nombre: "Libania Hidalgo", puestos: 2, idioma: "es" },
     { nombre: "Isaac Galloso", puestos: 1, idioma: "es" },
-    { nombre: "Nagore Franco", puestos: 2, idioma: "es" },
-    { nombre: "Pablo Castro", puestos: 1, idioma: "es" },
+    { nombre: "Nagore Constantino", puestos: 2, idioma: "es" },
+    { nombre: "Pablo Castro", puestos: 2, idioma: "es" },
     { nombre: "Rosa Flores", puestos: 1, idioma: "es" },
     { nombre: "Rocío Pérez", puestos: 1, idioma: "es" },
     { nombre: "María López", puestos: 2, idioma: "es" },
@@ -68,7 +68,7 @@ const invitados = [
     { nombre: "Xavier Soto", puestos: 2, idioma: "es" },
     { nombre: "Hugo Arias", puestos: 1, idioma: "es" },
     { nombre: "Pere Coll", puestos: 1, idioma: "es" },
-    { nombre: "Joshua", puestos: 1, idioma: "es" },
+    { nombre: "Joshua Jiménez", puestos: 1, idioma: "es" },
     { nombre: "Pedro Tena", puestos: 1, idioma: "es" },
     { nombre: "Pedro Manuel Barquero", puestos: 1, idioma: "es" },
     { nombre: "Abel Méndez", puestos: 1, idioma: "es" }
