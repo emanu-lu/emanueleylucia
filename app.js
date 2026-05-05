@@ -17,6 +17,7 @@ const invitados = [
     { nombre: "Loredana", puestos: 2, idioma: "it" },
     { nombre: "Lola", puestos: 2, idioma: "it" },
     { nombre: "Alessandro Gentili", puestos: 2, idioma: "it" },
+    { nombre: "Andrea Berretti", puestos: 1, idioma: "it" },
 
 
 
@@ -72,7 +73,8 @@ const invitados = [
     { nombre: "Joshua Jiménez", puestos: 1, idioma: "es" },
     { nombre: "Pedro Tena", puestos: 1, idioma: "es" },
     { nombre: "Pedro Manuel Barquero", puestos: 1, idioma: "es" },
-    { nombre: "Abel Méndez", puestos: 1, idioma: "es" }
+    { nombre: "Abel Méndez", puestos: 1, idioma: "es" },
+    { nombre: "Andrés Castro", puestos: 1, idioma: "es" }
 ];
 
 // 2. DICCIONARIO DE IDIOMAS COMPLETO
