@@ -47,7 +47,7 @@ const invitados = [
     { nombre: "Nicola Fraticelli", puestos: 1, idioma: "it" },
     { nombre: "Silvia Capuzzo", puestos: 1, idioma: "it" },
     { nombre: "Alessandra Pedrelli", puestos: 1, idioma: "it" },
-    { nombre: "Simone Amorosino", puestos: 1, idioma: "it" },
+    { nombre: "Simone Amorosino", puestos: 2, idioma: "it" },
     { nombre: "Davide Roncuzzi", puestos: 1, idioma: "it" },
     { nombre: "Leonardo Neri", puestos: 1, idioma: "it" },
 
