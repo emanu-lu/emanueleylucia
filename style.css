@@ -1,4 +1,38 @@
-/* VARIABLES Y PALETA DE COLORES */
+/* SPOTIFY & ALBUM SECTIONS */
+/* SPOTIFY & ALBUM SECTIONS */
+.spotify-section,
+.album-section {
+    text-align: center;
+}
+
+.spotify-wrapper {
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.10);
+}
+
+.album-btn-link {
+    display: inline-block;
+    font-size: 1rem;
+    padding: 14px 28px;
+}
+
+.album-preview {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 14px;
+    max-width: 220px;
+    margin: 0 auto 26px auto;
+}
+
+.album-preview img {
+    width: 100%;
+    aspect-ratio: 3 / 4;
+    object-fit: cover;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+    display: block;
+}
 :root {
     --naranja: #5FB49C;
     --crema: #FFFFFF;
@@ -214,6 +248,23 @@ button#btn-search, button#btn-submit {
     border-radius: 15px;
     border: 1px dashed var(--naranja);
     margin: 20px 0;
+    transition: transform 0.15s ease;
+}
+
+.iban-box:active {
+    transform: scale(0.98);
+}
+
+#iban-number {
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin: 6px 0;
+}
+
+#iban-hint {
+    display: block;
+    opacity: 0.6;
+    font-size: 0.8rem;
 }
 
 .form-group {
@@ -324,11 +375,12 @@ footer p{
     position: absolute;
     left: -41px;
     top: 6px;
-    width: 14px;
-    height: 14px;
+    width: 16px;
+    height: 16px;
     border-radius: 50%;
-    background: var(--crema);
-    border: 2px solid var(--naranja);
+    background: var(--naranja);
+    border: 3px solid var(--crema);
+    box-shadow: 0 0 0 4px rgba(95, 180, 156, 0.18);
 }
 
 .timeline__time {
@@ -370,6 +422,7 @@ footer p{
     display: grid;
     gap: 30px;
     margin-top: 30px;
+    align-items: stretch;
 }
 
 .info-card {
@@ -381,6 +434,9 @@ footer p{
     text-align: center;
     border: 1px solid rgba(0,0,0,0.03);
     transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 
 .info-card:hover {
@@ -388,16 +444,20 @@ footer p{
     box-shadow: 0 15px 40px rgba(0,0,0,0.1);
 }
 
-/* Ilustraciones de las tarjetas hechas más grandes */
+/* Ilustraciones de las tarjetas: mismo hueco siempre, así los títulos arrancan a la misma altura */
 .ilustracion-icono {
-    width: 150px; 
-    height: auto;
+    width: 130px; 
+    height: 130px;
+    object-fit: contain;
     margin: 0 auto 15px auto;
     display: block;
 }
 
 .info-card__content {
     padding-top: 10px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
 }
 
 .card__title {
@@ -419,6 +479,12 @@ footer p{
     font-size: 1rem;
     line-height: 1.6;
     opacity: 0.85;
+    flex: 1;
+}
+
+.btn-hotel-details {
+    margin-top: 20px;
+    align-self: center;
 }
 
 .map-container {
@@ -446,7 +512,8 @@ footer p{
 /* Foto de la ubicación */
 .venue-photo {
     width: 100%;
-    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
     border-radius: 10px;
     margin-bottom: 20px;
     box-shadow: 0 5px 15px rgba(0,0,0,0.05);
@@ -528,6 +595,45 @@ html {
     transform: scale(1);
 }
 /* =========================
+   MODAL HOTEL SAVIO
+========================= */
+.btn-hotel-details {
+    padding: 10px 22px;
+    font-size: 0.9rem;
+}
+
+.hotel-rates-table {
+    background-color: var(--blanco);
+    border-radius: 12px;
+    border: 1px dashed var(--naranja);
+    padding: 5px 20px;
+}
+
+.hotel-rate-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    text-align: left;
+}
+
+.hotel-rate-row:not(:last-child) {
+    border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.hotel-rate-price {
+    font-weight: 700;
+    color: var(--naranja);
+}
+
+.hotel-per-night {
+    font-weight: 400;
+    color: var(--texto);
+    opacity: 0.7;
+    font-size: 0.75rem;
+}
+
+/* =========================
    DISEÑO RESPONSIVO (MOBILE -> DESKTOP)
 ========================= */
 
@@ -539,8 +645,8 @@ html {
         padding: 40px; 
     }
     
-    .logistics.container, .gift.container { 
-        max-width: 900px; 
+    .logistics.container, .gift.container, .event-grid-row { 
+        max-width: 700px; 
     }
 
     .search-box {
@@ -600,33 +706,41 @@ margin-bottom: 0;
     .story p {
         padding: 0 40px;
     }
+
+    /* Todas las cajas comparten el mismo ancho también en escritorio grande */
+    .section-container,
+    .logistics.container,
+    .gift.container,
+    .timeline-horizontal-section {
+        max-width: 900px;
+    }
 }
 /* =========================
-   DISEÑO DE HISTORIA (ANCHO COMPLETO)
+   "CÓMO EMPEZÓ" (MAPA + TEXTO)
 ========================= */
-.section-container.story {
-    width: 100%;
-    max-width: none; /* Rompemos el límite de 500px/600px */
-    border-radius: 0; /* Opcional: quitar bordes redondeados para que sea 100% inmersivo */
-    padding: 60px 10%;
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-    align-items: center;
-}
-
-/* En escritorio, la historia se divide en dos lados */
-@media (min-width: 768px) {
-    .section-container.story {
-        flex-direction: row; /* Texto y mapa/foto lado a lado */
-        justify-content: space-between;
+/* En escritorio, el mapa (con su título) va a la izquierda y el texto a la derecha */
+@media (min-width: 1024px) {
+    .story-section {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        gap: 50px;
         text-align: left;
     }
 
-    .section-container.story .polaroid-item, 
-    .section-container.story #story-text {
-        flex: 1; /* Ambos ocupan el 50% */
+    .story-left {
+        flex: 1;
         max-width: 45%;
+    }
+
+    .story-left h2 {
+        text-align: left;
+    }
+
+    .story-right {
+        flex: 1;
+        max-width: 55%;
+        margin: 0;
     }
 }
 
@@ -638,7 +752,43 @@ margin-bottom: 0;
     flex-direction: column; /* Por defecto en móvil, uno bajo otro */
     gap: 20px;
     width: 90%;
+    max-width: 500px;
     margin: 0 auto;
+}
+
+.event-grid-row .location-card h2 {
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.event-grid-row .location-card h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background: var(--naranja);
+    margin: 12px auto 20px auto;
+}
+
+.event-grid-row .location-card {
+    display: flex;
+    flex-direction: column;
+    transition: all 0.3s ease;
+}
+
+.event-grid-row .location-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+}
+
+.event-grid-row .location-card .text-justified {
+    flex: 1;
+}
+
+.event-grid-row .location-card .btn-secundario {
+    align-self: center;
+    margin-top: 25px;
+    margin-bottom: 5px;
 }
 
 @media (min-width: 1024px) {
@@ -646,7 +796,7 @@ margin-bottom: 0;
         flex-direction: row; /* En PC se ponen en fila */
         justify-content: center;
         align-items: stretch; /* Para que todas las cajas tengan la misma altura */
-        max-width: 1200px;
+        max-width: 900px;
     }
 
     .event-grid-row .section-container {
@@ -660,12 +810,24 @@ margin-bottom: 0;
 
 /* Ajuste del contenedor general */
 .timeline-horizontal-section {
-    width: 90% !important;
-    max-width: 1200px !important;
-    margin: 40px auto !important;
+    width: 90%;
+    max-width: 500px;
+    margin: 40px auto;
+}
+
+@media (min-width: 768px) {
+    .timeline-horizontal-section {
+        max-width: 700px;
+    }
 }
 
 @media (min-width: 1024px) {
+    /* La línea del tiempo ocupa mucho más ancho que el resto de cajas en escritorio */
+    .timeline-horizontal-section {
+        width: 95%;
+        max-width: 1300px;
+    }
+
     /* Quitamos el borde lateral y lo ponemos arriba */
     .timeline.horizontal .timeline__list {
         display: flex;
@@ -710,4 +872,3 @@ margin-bottom: 0;
         padding-left: 30px;
     }
 }
-

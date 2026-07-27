@@ -123,10 +123,12 @@
         
         <div class="decoracion-img"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/6_wwxtgg.png" alt="Pajaritos"></div>
 
-            <section class="section-container location-card">
-            <h2 id="inicio"></h2>
-            <div class="polaroid-item"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867172/1_yhb1qm.png"></div>
-            <p id="story-text" class="text-justified"></p>
+            <section class="section-container location-card story-section">
+            <div class="story-left">
+                <h2 id="inicio"></h2>
+                <div class="polaroid-item"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867172/1_yhb1qm.png"></div>
+            </div>
+            <p id="story-text" class="text-justified story-right"></p>
         </section>
 
         <div class="decoracion-img"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/9_x9lhrv.png" alt="Sol"></div>
@@ -165,6 +167,11 @@
                 <h3 class="timeline__title" id="party-title"></h3>
                 <p id="party-desc" class="timeline__desc"></p>
             </article>
+            <article class="timeline__item">
+                <div class="timeline__time" id="vuelta-time"></div>
+                <h3 class="timeline__title" id="vuelta-title"></h3>
+                <p class="timeline__desc" id="vuelta-desc"></p>
+            </article>
         </div>
     </div>
 </section>
@@ -177,6 +184,7 @@
                     <div class="info-card__content">
                         <h3 class="card__title" id="hotel-title-card"></h3>
                         <p class="card__text" id="hotel-text-card"></p>
+                        <button type="button" id="btn-hotel-info" class="btn-secundario btn-hotel-details"></button>
                     </div>
                 </div>
                 <div class="info-card">
@@ -198,21 +206,86 @@
 
         <div class="decoracion-img"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/8_w4pzuu.png" alt="Flores"></div>
 
+        <section class="section-container spotify-section">
+            <h2 id="spotify-title" class="titulos-card"></h2>
+            <p id="spotify-text" class="card__text" style="margin-bottom: 20px;"></p>
+            <div class="spotify-wrapper">
+                <iframe
+                    src="https://open.spotify.com/embed/playlist/1KT0G58X8U7pSlC8LSkXuS?utm_source=generator&theme=0"
+                    width="100%"
+                    height="380"
+                    frameBorder="0"
+                    allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+                    loading="lazy"
+                    style="border-radius: 12px;">
+                </iframe>
+            </div>
+        </section>
+
+        <section class="section-container album-section">
+            <h2 id="album-title" class="titulos-card"></h2>
+            <p id="album-text" class="card__text" style="margin-bottom: 24px;"></p>
+            <div class="album-preview">
+                <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1785149178/20251005122252211_ayw6aj.jpg" alt="Foto del álbum compartido" loading="lazy">
+            </div>
+            <a id="album-btn" href="https://photos.app.goo.gl/tucgd9pvDFnp37cr6" target="_blank" class="btn-secundario album-btn-link"></a>
+            <p style="font-size: 0.78rem; color: #aaa; margin-top: 16px;">Google Fotos · sin instalar nada</p>
+        </section>
+
+        <div class="decoracion-img"><img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/8_w4pzuu.png" alt="Flores"></div>
+
         <section class="gift container">
             <h2 id="gift-title" class="titulos-card"></h2>
             <div class="info-card">
                 <img src="https://res.cloudinary.com/dhryyhnig/image/upload/v1776867526/1_o3weql.png" alt="Regalo" class="ilustracion-icono">
                 <div class="info-card__content">
                     <p id="gift-text" class="card__text"></p>
-                    <div class="iban-box">
-                        <small>IBAN:</small>
-                        <p>ES87 1583 0001 1191 8723 1246</p>
+                    <div class="iban-box" id="iban-box">
+                        <small id="iban-label"></small>
+                        <p id="iban-number" data-iban="ES87 1583 0001 1191 8723 1246">•••• •••• •••• •••• ••••</p>
+                        <small id="iban-hint"></small>
                     </div>
                     <p id="thanks-text" class="card__text"></p>
                 </div>
             </div>
         </section>
     </main>
+
+    <div id="hotel-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <section class="hotel-info">
+                <h2 id="hotel-modal-title" style="color: var(--naranja);"></h2>
+                <p id="hotel-modal-intro" class="text-justified" style="margin-bottom: 20px;"></p>
+
+                <h3 id="hotel-modal-rates-title" style="margin-bottom: 12px; text-align:left;"></h3>
+                <div class="hotel-rates-table">
+                    <div class="hotel-rate-row">
+                        <span id="hotel-modal-single"></span>
+                        <span class="hotel-rate-price">60€ <small class="hotel-per-night"></small></span>
+                    </div>
+                    <div class="hotel-rate-row">
+                        <span id="hotel-modal-double"></span>
+                        <span class="hotel-rate-price">75€ <small class="hotel-per-night"></small></span>
+                    </div>
+                    <div class="hotel-rate-row">
+                        <span id="hotel-modal-triple"></span>
+                        <span class="hotel-rate-price">100€ <small class="hotel-per-night"></small></span>
+                    </div>
+                    <div class="hotel-rate-row">
+                        <span id="hotel-modal-quad"></span>
+                        <span class="hotel-rate-price">110€ <small class="hotel-per-night"></small></span>
+                    </div>
+                </div>
+
+                <h3 id="hotel-modal-how-title" style="margin: 25px 0 10px; text-align:left;"></h3>
+                <p id="hotel-modal-how-text" class="text-justified" style="margin-bottom: 20px;"></p>
+
+                <a id="hotel-modal-btn-email" href="#" class="btn-secundario" style="margin-top: 0;"></a>
+            </section>
+        </div>
+    </div>
 
     <footer><p>E & L | 2026</p></footer>
     <script src="app.js"></script>

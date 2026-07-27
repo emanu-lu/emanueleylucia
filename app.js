@@ -17,7 +17,6 @@ const invitados = [
     { nombre: "Loredana", puestos: 2, idioma: "it" },
     { nombre: "Lola", puestos: 2, idioma: "it" },
     { nombre: "Alessandro Gentili", puestos: 2, idioma: "it" },
-    { nombre: "Andrea Berretti", puestos: 1, idioma: "it" },
 
 
 
@@ -28,13 +27,8 @@ const invitados = [
     { nombre: "Luis García", puestos: 1, idioma: "es" },
     { nombre: "Belén Martínez", puestos: 1, idioma: "es" },
     { nombre: "Inmaculada Aponte", puestos: 2, idioma: "es" },
-    { nombre: "Alejandro Prieto", puestos: 2, idioma: "es" },
-    { nombre: "Juanjo Prieto", puestos: 1, idioma: "es" },
-    { nombre: "María Sanjuan Aponte", puestos: 2, idioma: "es" },
     { nombre: "María Sanjuan", puestos: 2, idioma: "es" },
-    { nombre: "Victoria Aponte", puestos: 2, idioma: "es" },
-    { nombre: "Mariló Aponte", puestos: 3, idioma: "es" },
-    { nombre: "Virginia García", puestos: 3, idioma: "es" },
+
 
     // AMICI ITALIANI (Italiano)
     { nombre: "Filippo Aletti", puestos: 1, idioma: "it" },
@@ -46,7 +40,7 @@ const invitados = [
     { nombre: "Gianmarco Canepari", puestos: 1, idioma: "it" },
     { nombre: "Nicola Fraticelli", puestos: 1, idioma: "it" },
     { nombre: "Silvia Capuzzo", puestos: 1, idioma: "it" },
-    { nombre: "Alessandra Pedrelli", puestos: 1, idioma: "it" },
+    { nombre: "Alessandra Pedrelli", puestos: 2, idioma: "it" },
     { nombre: "Simone Amorosino", puestos: 2, idioma: "it" },
     { nombre: "Davide Roncuzzi", puestos: 1, idioma: "it" },
     { nombre: "Leonardo Neri", puestos: 1, idioma: "it" },
@@ -62,19 +56,18 @@ const invitados = [
     { nombre: "Rosa Flores", puestos: 1, idioma: "es" },
     { nombre: "Rocío Pérez", puestos: 1, idioma: "es" },
     { nombre: "María López", puestos: 2, idioma: "es" },
-    { nombre: "Eva Jiménez", puestos: 1, idioma: "es" },
-    { nombre: "Alicia Vidal", puestos: 1, idioma: "es" },
-    { nombre: "Paula Carmona", puestos: 1, idioma: "es" },
-    { nombre: "Andrea Merchán", puestos: 1, idioma: "es" },
+    { nombre: "Eva Jiménez", puestos: 2, idioma: "es" },
+    { nombre: "Alicia Vidal", puestos: 2, idioma: "es" },
+    { nombre: "Paula Carmona", puestos: 2, idioma: "es" },
+    { nombre: "Andrea Merchán", puestos: 2, idioma: "es" },
     { nombre: "Clara Lledó", puestos: 1, idioma: "es" },
     { nombre: "Xavier Soto", puestos: 2, idioma: "es" },
     { nombre: "Hugo Arias", puestos: 1, idioma: "es" },
     { nombre: "Pere Coll", puestos: 1, idioma: "es" },
     { nombre: "Joshua Jiménez", puestos: 1, idioma: "es" },
     { nombre: "Pedro Tena", puestos: 1, idioma: "es" },
-    { nombre: "Pedro Manuel Barquero", puestos: 1, idioma: "es" },
     { nombre: "Abel Méndez", puestos: 1, idioma: "es" },
-    { nombre: "Andrés Castro", puestos: 1, idioma: "es" }
+    { nombre: "Marta Ruiz", puestos: 2, idioma: "es" }
 ];
 
 // 2. DICCIONARIO DE IDIOMAS COMPLETO
@@ -103,16 +96,31 @@ const i18n = {
         "ceremony-time": "12:00",
         "ceremony-title": "Ceremonia",
         "ceremony-desc": "Comune di Cesena. Por favor, llegad al menos media hora antes (11:30).",
-        "bus-time": "12:45",
+        "bus-time": "13:00",
         "bus-title": "Autobús",
         "bus-desc": "Salida hacia Casa Catani desde Cesena.",
         "party-time": "13:30",
         "party-title": "Recepción",
         "party-desc": "Cóctel y comida en Casa Catani.",
+        "vuelta-time": "00:00",
+        "vuelta-title": "Vuelta",
+        "vuelta-desc": "Autobús de regreso desde Casa Catani hasta Cesena.",
 
         "travel-title": "El viaje",
         "hotel-title-card": "Alojamiento",
-        "hotel-text-card": "Estamos organizando opciones de alojamiento. Si preferís buscar por vuestra cuenta, os recomendamos la zona de Cesena Centro por comodidad.",
+        "hotel-text-card": "Os recomendamos el Hotel Savio, en Cesena, con tarifas especiales para nuestra boda.",
+        "hotel-btn-details": "Ver tarifas y cómo reservar",
+        "hotel-modal-title": "Hotel Savio · Cesena",
+        "hotel-modal-intro": "Es el hotel que os recomendamos, a pocos minutos del centro de Cesena.",
+        "hotel-modal-rates-title": "Tarifas (convenio boda)",
+        "hotel-modal-single": "Individual",
+        "hotel-modal-double": "Doble",
+        "hotel-modal-triple": "Triple",
+        "hotel-modal-quad": "Cuádruple",
+        "hotel-modal-per-night": "por noche",
+        "hotel-modal-how-title": "¿Cómo reservar?",
+        "hotel-modal-how-text": "Escribe un email a info@hotelsavio.it mencionando la \"Convenzione Matrimonio Lucía\" e indicando: nombre y apellidos, tipo de habitación, fecha de entrada, fecha de salida y tu teléfono (con +34).",
+        "hotel-modal-btn-email": "Escribir al hotel",
         "vuelos-title": "Vuelos",
         "vuelos-text": "El aeropuerto recomendado es Bolonia (BLQ). También podéis volar a Venecia o Milán y coger un tren hasta Cesena.",
         "transporte-title": "Transporte",
@@ -121,6 +129,9 @@ const i18n = {
         "btn-map2": "Ver mapa",
         "gift-title": "Un detalle para nosotros",
         "gift-text": "Vuestra presencia es el mejor regalo. Si aun así deseáis tener un detalle para ayudarnos a construir nuestro futuro y nuestras próximas aventuras juntos:",
+        "iban-label": "IBAN",
+        "iban-hint": "Toca para ver y copiar",
+        "iban-hint-copied": "¡Copiado!",
         "thanks-text": "Gracias por formar parte del viaje.",
         "error-msg": "No encontramos ese nombre. Revisa las tildes, y no escribas tu segundo apellido.",
         "guestInput": "Introduce tu nombre y primer apellido",
@@ -132,7 +143,7 @@ const i18n = {
         "sent-ok": "¡Datos guardados!",
         "success-title": "¡Gracias!",
         "sent-error": "Error al enviar. Inténtalo de nuevo.",
-        "deadline-text": "Por favor, confirmar antes del 30 de junio de 2026",
+        "deadline-text": "Confirma tu asistencia cuanto antes en el formulario.",
         "countdown-suffix": "PARA EL GRAN DÍA",
         "day-letter": "d",
         "hour-letter": "h",
@@ -145,7 +156,12 @@ const i18n = {
         "opt-cel": "Celíaco / Sin gluten",
         "opt-lac": "Intolerante a la lactosa",
         "opt-otra": "Otra restricción / Tengo varias",
-        "lbl-especificar": "Por favor, especifica:"
+        "lbl-especificar": "Por favor, especifica:",
+        "spotify-title": "Nuestra playlist",
+        "spotify-text": "Cada canción que nos habéis propuesto está aquí. ¡Seguid añadiendo!",
+        "album-title": "El álbum del día",
+        "album-text": "Comparte tus fotos con nosotros. Pulsa el botón y sube tus momentos favoritos directamente al álbum compartido.",
+        "album-btn": "Abrir álbum compartido"
     },
     it: {
         "btn-search": "Scopri il mio invito",
@@ -170,16 +186,31 @@ const i18n = {
         "ceremony-time": "12:00",
         "ceremony-title": "Cerimonia",
         "ceremony-desc": "Comune di Cesena. Vi preghiamo di arrivare almeno mezz'ora prima (11:30).",
-        "bus-time": "12:45",
+        "bus-time":"13:00",
         "bus-title": "Pullman",
         "bus-desc": "Partenza verso Casa Catani da Cesena.",
         "party-time": "13:30",
         "party-title": "Ricevimento",
         "party-desc": "Cocktail e pranzo a Casa Catani.",
+        "vuelta-time": "00:00",
+        "vuelta-title": "Ritorno",
+        "vuelta-desc": "Pullman di ritorno da Casa Catani a Cesena.",
 
         "travel-title": "Il viaggio",
         "hotel-title-card": "Alloggio",
-        "hotel-text-card": "Stiamo definendo alcune opzioni di alloggio. Se preferite cercare in autonomia, vi consigliamo la zona di Cesena Centro per comodità.",
+        "hotel-text-card": "Vi consigliamo l'Hotel Savio, a Cesena, con tariffe speciali per il nostro matrimonio.",
+        "hotel-btn-details": "Vedi tariffe e come prenotare",
+        "hotel-modal-title": "Hotel Savio · Cesena",
+        "hotel-modal-intro": "È l'hotel che vi consigliamo, a pochi minuti dal centro di Cesena.",
+        "hotel-modal-rates-title": "Tariffe (convenzione matrimonio)",
+        "hotel-modal-single": "Singola",
+        "hotel-modal-double": "Doppia",
+        "hotel-modal-triple": "Tripla",
+        "hotel-modal-quad": "Quadrupla",
+        "hotel-modal-per-night": "a notte",
+        "hotel-modal-how-title": "Come prenotare?",
+        "hotel-modal-how-text": "Scrivi un'email a info@hotelsavio.it menzionando la \"Convenzione Matrimonio Lucía\" indicando: nome e cognome, tipo di camera, data di check-in, data di check-out e numero di telefono (con +34).",
+        "hotel-modal-btn-email": "Scrivi all'hotel",
         "vuelos-text": "L'aeroporto consigliato è Bologna (BLQ). Potete anche volare su Venezia o Milano e prendere un treno per Cesena.",
         "travel-text": "Da Bologna (BLQ), il Marconi Express vi porta alla stazione centrale. Ci sono treni diretti per Cesena regolarmente. Anche da Venezia o Milano potete arrivare facilmente in treno.",
         "vuelos-title": "Voli",
@@ -188,6 +219,9 @@ const i18n = {
         "btn-map2": "Vedi mappa",
         "gift-title": "Un pensiero per noi",
         "gift-text": "La vostra presenza è il regalo più grande. Se comunque desiderate farci un pensiero per aiutarci a costruire il nostro futuro e le nostre prossime avventure insieme:",
+        "iban-label": "IBAN",
+        "iban-hint": "Tocca per vedere e copiare",
+        "iban-hint-copied": "Copiato!",
         "thanks-text": "Grazie per far parte del viaggio.",
         "error-msg": "Nome non trovato. Controlla se è scritto correttamente.",
         "guestInput": "Inserisci il tuo nome e cognome",
@@ -199,7 +233,7 @@ const i18n = {
         "sent-ok": "Dati salvati!",
         "success-title": "Grazie!",
         "sent-error": "Errore durante l'invio. Riprova.",
-        "deadline-text": "Per favore, conferma entro il 30 giugno 2026",
+        "deadline-text": "Conferma la tua presenza il prima possibile nel modulo.",
         "ceremonia-titulo":"La Cerimonia",
         "casa-titulo":"Il Ricevimento",
         "opt-ninguna": "Nessuna / Mangio di tutto",
@@ -208,7 +242,12 @@ const i18n = {
         "opt-cel": "Celiaco / Senza glutine",
         "opt-lac": "Intollerante al lattosio",
         "opt-otra": "Altro / ne ho varie",
-        "lbl-especificar": "Per favore, specifica:"
+        "lbl-especificar": "Per favore, specifica:",
+        "spotify-title": "La nostra playlist",
+        "spotify-text": "Ogni canzone che ci avete proposto è qui. Continuate ad aggiungerle!",
+        "album-title": "L'album del giorno",
+        "album-text": "Condividi le tue foto con noi. Clicca il pulsante e carica i tuoi momenti preferiti nell'album condiviso.",
+        "album-btn": "Apri album condiviso"
 
     }
 };
@@ -220,6 +259,43 @@ const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzTYckj3NvUXX0Xn5uw3
 const modal = document.getElementById("rsvp-modal");
 const btnOpenModal = document.getElementById("btn-open-rsvp");
 const spanClose = document.getElementsByClassName("close-modal")[0];
+
+const hotelModal = document.getElementById("hotel-modal");
+const btnOpenHotelModal = document.getElementById("btn-hotel-info");
+const hotelSpanClose = hotelModal ? hotelModal.querySelector(".close-modal") : null;
+
+// Plantilla de email fija (en italiano, tal como la requiere el hotel)
+const HOTEL_EMAIL_SUBJECT = "Prenotazione - Convenzione Matrimonio Lucía";
+const HOTEL_EMAIL_BODY = `Vorrei effettuare una prenotazione all'interno della "Convenzione Matrimonio Lucía". Di seguito i dettagli richiesti:
+- Nome e Cognome: 
+- Tipo di camera: [Doppia / Tripla / Matrimoniale ad uso singolo]
+- Data di Check-in: 
+- Data di Check-out: 
+- Numero di telefono: `;
+
+const hotelEmailBtn = document.getElementById("hotel-modal-btn-email");
+if (hotelEmailBtn) {
+    hotelEmailBtn.href = `mailto:info@hotelsavio.it?subject=${encodeURIComponent(HOTEL_EMAIL_SUBJECT)}&body=${encodeURIComponent(HOTEL_EMAIL_BODY)}`;
+}
+
+if (btnOpenHotelModal) {
+    btnOpenHotelModal.onclick = function() {
+        hotelModal.style.display = "flex";
+        setTimeout(() => hotelModal.classList.add("show"), 10);
+    }
+}
+if (hotelSpanClose) {
+    hotelSpanClose.onclick = function() {
+        hotelModal.classList.remove("show");
+        setTimeout(() => hotelModal.style.display = "none", 400);
+    }
+}
+window.addEventListener('click', function(event) {
+    if (event.target == hotelModal) {
+        hotelModal.classList.remove("show");
+        setTimeout(() => hotelModal.style.display = "none", 400);
+    }
+});
 
 function setLanguage(lang) {
     currentLang = lang;
@@ -243,8 +319,10 @@ function setLanguage(lang) {
     }
     
     if (btnOpenModal) btnOpenModal.innerText = t["btn-open-rsvp"];
+    if (btnOpenHotelModal) btnOpenHotelModal.innerText = t["hotel-btn-details"];
     document.querySelectorAll(".opt-no-text").forEach(el => el.innerText = t["select-no"]);
     document.querySelectorAll(".opt-yes-text").forEach(el => el.innerText = t["select-yes"]);
+    document.querySelectorAll(".hotel-per-night").forEach(el => el.innerText = t["hotel-modal-per-night"]);
     
     if (invitadoActual) {
         actualizarMensajeReserva();
@@ -515,5 +593,29 @@ function mostrarCajetinAlergiasGuest(index) {
         // Limpiamos el texto si cambian de opinión
         document.querySelector(`input[name="guest_alergias_detalle_${index}"]`).value = ''; 
     }
+}
+
+// Tocar el IBAN lo revela y lo copia al portapapeles a la vez
+const ibanBox = document.getElementById('iban-box');
+const ibanNumberEl = document.getElementById('iban-number');
+const ibanHintEl = document.getElementById('iban-hint');
+
+if (ibanBox) {
+    ibanBox.style.cursor = 'pointer';
+    ibanBox.addEventListener('click', function() {
+        const iban = ibanNumberEl.dataset.iban;
+        ibanNumberEl.innerText = iban;
+
+        const restoreHint = () => { ibanHintEl.innerText = i18n[currentLang]['iban-hint']; };
+
+        if (navigator.clipboard && navigator.clipboard.writeText) {
+            navigator.clipboard.writeText(iban)
+                .then(() => {
+                    ibanHintEl.innerText = i18n[currentLang]['iban-hint-copied'];
+                    setTimeout(restoreHint, 2000);
+                })
+                .catch(() => { /* El IBAN queda visible para copiarlo a mano */ });
+        }
+    });
 }
 setLanguage('es'); // Inicialización por defecto
